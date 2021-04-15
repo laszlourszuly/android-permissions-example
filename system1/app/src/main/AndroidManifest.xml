@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.echsylon.system1">
+
+    <!--
+        This permission defines the rights to PULL data from this
+        app (see "MigrateProvider" provider below). The user is
+        the ultimate authority who can grant this permission to
+        requesting apps.
+    -->
+    <permission
+        android:name="com.echsylon.system1.MIGRATE"
+        android:description="@string/permission_description"
+        android:label="@string/permission_label"
+        android:protectionLevel="dangerous" />
+
+    <!--
+        This is the permission defined in the System 2 app that,
+        if granted, allows us to PUSH migrate data to it.
+    -->
+    <uses-permission android:name="com.echsylon.system2.MIGRATE" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Sender">
+
+        <!-- Test UI -->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            This is the content provider that acts as the IPC transfer
+            medium when third parties are PULLing data from us.
+        -->
+        <provider
+            android:name=".MigrateProvider"
+            android:authorities="com.echsylon.system1"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.echsylon.system1.MIGRATE" />
+    </application>
+
+</manifest>

@@ -1,0 +1,7 @@
+<!DOCTYPE resources [<!ENTITY appname "System 1">]>
+
+<resources>
+    <string name="app_name">&appname;</string>
+    <string name="permission_label">Read &appname; data</string>
+    <string name="permission_description">read migration data from &appname; app</string>
+</resources>
