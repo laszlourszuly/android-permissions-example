@@ -1,0 +1,7 @@
+<!DOCTYPE resources [<!ENTITY appname "System 2">]>
+
+<resources>
+    <string name="app_name">&appname;</string>
+    <string name="permission_label">Start &appname; app</string>
+    <string name="permission_description">start &appname; app with a migrate package</string>
+</resources>
